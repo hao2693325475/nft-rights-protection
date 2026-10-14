@@ -1,0 +1,38 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: nft-rights-backend
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/nft_rights_db?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+
+# Web3 & IPFS 自定义配置
+web3:
+  network: https://rpc.sepolia.org
+  chain-id: 11155111
+  contracts:
+    nft-asset: "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0"
+    royalty-manager: "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+    access-controller: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
+
+ipfs:
+  api-url: http://127.0.0.1:5001/api/v0
+  gateway-url: https://ipfs.io/ipfs/
